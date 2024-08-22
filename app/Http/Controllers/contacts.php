@@ -17,6 +17,7 @@ class contacts extends Controller
 
     $sortby = 'name';
     $sortDirection = 'asc';
+
     if($request->filled('sort_by')){
         switch($request->input('sort_by')){
           case 'name_asc':
@@ -38,9 +39,9 @@ class contacts extends Controller
         }
     };
     $datas =contact::query()
-      ->when($request->search,function(Builder $builder) use ($request){
-        return   $builder->where('name','like',"%{$request->search}%")
-       ->orWhere("email","like","%{$request->search}%");
+      ->when($search,function($builder,$search){
+        return   $builder->where('name','LIKE',"%{$search}%")
+       ->orWhere('email','LIKE',"%{$search}%");
       
       })->orderBy( $sortby,$sortDirection)->paginate(5);
 
