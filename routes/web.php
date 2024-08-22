@@ -8,7 +8,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 // contacts Routing
-Route::get('/contacts',[contacts::class,'index']); 
+Route::get('/contacts',[contacts::class,'index'])->name('contacts.index'); 
 Route::get('/contacts/create',[contacts::class,'create'])->name('contacts.create'); 
 Route::post('/contacts/store',[contacts::class,'store'])->name('contacts.store'); 
 Route::get('/contact/edit/{id}',[contacts::class,'edit'])->name('contact.edit'); 

@@ -1,28 +1,18 @@
 @extends('layouts.app')
 @section('content')
-<form action="" method="post">
-    @csrf
-      <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Name</label>
-          <input value="{{ $post->name }}" type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          
+    <div class="card mx-auto p-2 mt-5 shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 36rem;">
+        <div class="card-body">
+            <div class="mb-3 d-flex justify-content-between">
+                <h5 class="card-title">Contact Show Page</h5>
+            </div>
+            <hr>
+            <div>
+                <h6>Name : {{ $post->name }}</h6>
+                <h6>Email : {{ $post->email }}</h6>
+                <h6>Phone : {{ $post->phone }}</h6>
+                <h6>Address : {{ $post->address }}</h6>
+            </div>
+            <a class="btn btn-primary" href="{{ route('contacts.index') }}">Back</a>
         </div>
-  
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email </label>
-          <input value="{{ $post->email }}" type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Phone</label>
-          <input value="{{ $post->phone }}" type="number" name="phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          
-        </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label"> Address</label>
-        <input value="{{ $post->address }}" type="text" name="address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-       
-      </div>
-      <a class="btn btn-primary" href="{{ route('contacts.create') }}"  >Back</button>
-    </form>
-    @endsection
+    </div>
+@endsection
